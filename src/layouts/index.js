@@ -8,7 +8,7 @@ import './index.css'
 const Header = () => (
   <div
     style={{
-      background: 'rebeccapurple',
+      background: '#bada55',
       marginBottom: '1.45rem',
     }}
   >
@@ -27,7 +27,7 @@ const Header = () => (
             textDecoration: 'none',
           }}
         >
-          Gatsby
+          Will is currently building a new homepage.
         </Link>
       </h1>
     </div>
@@ -39,8 +39,8 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title="Will Simons"
       meta={[
-        { name: 'description', content: 'Will Simons is adventurous, a fullstack web engineer, emphatic, and creative, amongst other things.' },
-        { name: 'keywords', content: 'Something' },
+        { name: 'description', content: 'Will Simons is adventurous, a fullstack web engineer, emphatic, and driven to create, amongst other things.' },
+        { name: 'keywords', content: 'Javascript' },
       ]}
     />
     <Header />
