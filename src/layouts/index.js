@@ -5,35 +5,6 @@ import Helmet from 'react-helmet'
 
 import './index.css'
 
-const Header = () => (
-  <div
-    style={{
-      background: '#bada55',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Will is currently building a new homepage.
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
-
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
@@ -43,7 +14,6 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'Javascript' },
       ]}
     />
-    <Header />
     <div
       style={{
         margin: '0 auto',
