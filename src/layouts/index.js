@@ -10,7 +10,11 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title="Will Simons"
       meta={[
-        { name: 'description', content: 'Will Simons is adventurous, a fullstack web engineer, emphatic, and driven to create, amongst other things.' },
+        {
+          name: 'description',
+          content:
+            'Will Simons is adventurous, a fullstack web engineer, emphatic, and driven to create, amongst other things.',
+        },
         { name: 'keywords', content: 'Javascript' },
       ]}
     />
