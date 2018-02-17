@@ -9,7 +9,7 @@ const propTypes = {
 class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.contentfulProject
-    const { categories, projectDescription, projectTitle } = project
+    const { categories, projectDescription, projectTitle, projectDate } = project
 
     return (
       <div>
@@ -44,6 +44,8 @@ export const projectQuery = graphql`
       projectDescription {
         projectDescription
       }
+      projectDate
+      projectSummary
     }
   }
 `

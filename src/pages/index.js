@@ -1,33 +1,24 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import graphql from 'graphql'
+import marked from 'marked'
+import Img from "gatsby-image";
 
-const ProjectItem = ({ node }) => (
-  <div>
-    <Link to={`project/${node.slug}`}>
-      <h3>{node.projectTitle}</h3>
-    </Link>
-  </div>
-)
+import Navbar from '../components/Navbar'
 
 class IndexPage extends React.Component {
   render() {
-    const projectEdges = this.props.data.allContentfulProject.edges
+    const { bio, headshot, name, tagline } = this.props.data.contentfulAbout
     return (
       <div>
-        <h1>Will Simons</h1>
-        <p>do-er, maker, software guy ☕</p>
-        <div>
-          <p className="home-header">Hey</p>
-        	<p>I’m Will and I'm a software developer, artist, skateboarder, and adventurer, among other things.</p>
-          <p></p>
+        <div className="fn fl-ns w-40-ns pr4-ns">
+          <Navbar name={name} tagline={tagline.tagline} />
         </div>
-        <div>
-        	<h2>Writing</h2>
-        	<ul>
-          {projectEdges.map(({ node }, i) => (
-            <li><ProjectItem node={node} key={node.id} /></li>
-          ))}
-          </ul>
+        <div className="fn fl-ns w-60-ns pt4-ns lh-copy">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: marked(bio.bio),
+            }}
+          />
         </div>
       </div>
     )
@@ -38,16 +29,20 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query pageQuery {
-    allContentfulProject {
-      edges {
-        node {
-          categories {
-            id
-            title
-          }
-          id
-          projectTitle
-          slug
+    contentfulAbout {
+      bio {
+        id
+        bio
+      }
+      name
+      tagline {
+        tagline
+      }
+      headshot {
+        file {
+          url
+          fileName
+          contentType
         }
       }
     }
